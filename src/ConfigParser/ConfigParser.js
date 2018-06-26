@@ -537,7 +537,8 @@ ConfigParser.prototype = {
             var editConfig =
                 {
                     file: tag.attrib['file'],
-                    target: tag.attrib['target'],
+                    target: tag.attrib['file'],
+                    parent: tag.attrib['target'],
                     mode: tag.attrib['mode'],
                     id: 'config.xml',
                     xmls: tag.getchildren()
@@ -554,6 +555,7 @@ ConfigParser.prototype = {
         return config_files.map(function (tag) {
             var configFile =
                 {
+                    file: tag.attrib['target'],
                     target: tag.attrib['target'],
                     parent: tag.attrib['parent'],
                     after: tag.attrib['after'],
